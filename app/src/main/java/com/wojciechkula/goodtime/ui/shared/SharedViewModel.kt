@@ -1,4 +1,4 @@
-package com.wojciechkula.goodtime.ui.menu
+package com.wojciechkula.goodtime.ui.shared
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -12,7 +12,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class MenuViewModel @Inject constructor(
+class SharedViewModel @Inject constructor(
     private val getProductsInteractor: getProductsInteractor
 ) : ViewModel() {
 
