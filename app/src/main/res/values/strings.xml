@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Good Time</string>
+    <string name="orders">Orders</string>
+    <string name="menu">Menu</string>
+
+    <string name="common_no_internet_connection">No internet connection</string>
+    <string name="shopping_cart">Shopping cart</string>
+    <string name="SAUCE">SAUCE</string>
+    <string name="DINNER">DINNER</string>
+    <string name="menu_add_to_card">Add to card</string>
+    <string name="menu_from_price">from %1$s zł</string>
+    <string name="menu_small_size">Small (24 Ø) - %1$s zł</string>
+    <string name="menu_medium_size">Medium (32 Ø) - %1$s zł</string>
+    <string name="menu_big_size">Big (45 Ø) - %1$s zł</string>
+    <string name="menu_mega_size">Mega (60 Ø) - %1$s zł</string>
+    <string name="menu_image_description">Image of %1$s</string>
+
 </resources>

@@ -2,6 +2,7 @@ package com.wojciechkula.goodtime.theme
 
 import androidx.compose.ui.graphics.Color
 
+val Teal100 = Color(0xFFAADAD3)
 val Teal300 = Color(0xFF52c7b8)
 val Teal500 = Color(0xFF009688)
 val Teal700 = Color(0xFF00675b)

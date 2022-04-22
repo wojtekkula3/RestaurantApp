@@ -4,7 +4,6 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.wojciechkula.goodtime.domain.model.ProductModel
 import com.wojciechkula.goodtime.domain.usecase.getProductsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -16,13 +15,16 @@ class MenuViewModel @Inject constructor(
     private val getProductsInteractor: getProductsInteractor
 ) : ViewModel() {
 
-    val viewState: MutableState<List<ProductModel>> = mutableStateOf(ArrayList())
+    val viewState: MutableState<MenuViewState> = mutableStateOf(MenuViewState(listOf()))
 
     init {
         viewModelScope.launch {
-            val products = getProductsInteractor()
-            Timber.d(products.toString())
-            viewState.value = products
+            try {
+                val products = getProductsInteractor()
+                viewState.value.products = products
+            } catch (e: Exception) {
+                Timber.e("Exception occured while getting products", e.message)
+            }
         }
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Good Time</string>
+    <string name="common_no_internet_connection">Brak połączenia z internetem</string>
+    <string name="menu_add_to_card">Dodaj do koszyka</string>
+    <string name="menu_from_price">od %1$s zł</string>
+    <string name="menu_small_size">Mała (24 Ø) - %1$s zł</string>
+    <string name="menu_medium_size">Średnia (32 Ø) - %1$s zł</string>
+    <string name="menu_big_size">Duża (45 Ø) - %1$s zł</string>
+    <string name="menu_mega_size">Mega (60 Ø) - %1$s zł</string>
+    <string name="menu_image_description">Zdjęcie %1$s</string>
+    <string name="orders">Zamówienia</string>
+    <string name="menu">Menu</string>
+    <string name="shopping_cart">Wózek z zakupami</string>
+    <string name="SAUCE">SOSY</string>
+    <string name="DINNER">ZESTAWY OBIADOWE</string>
+</resources>

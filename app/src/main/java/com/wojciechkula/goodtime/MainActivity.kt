@@ -10,6 +10,7 @@ import androidx.compose.runtime.State
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -23,7 +24,7 @@ import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.wojciechkula.goodtime.theme.GoodTimeTheme
-import com.wojciechkula.goodtime.ui.bottomNav.BottomNavItem
+import com.wojciechkula.goodtime.ui.common.bottomNavItems.BottomNavItem
 import com.wojciechkula.goodtime.ui.menu.Menu
 import com.wojciechkula.goodtime.ui.orders.Orders
 import com.wojciechkula.goodtime.ui.shared.SharedViewModel
@@ -48,34 +49,23 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Main(navController: NavHostController, backStackEntry: State<NavBackStackEntry?>) {
-    val bottomNavItems: List<BottomNavItem> = listOf(
-        BottomNavItem(
-            name = "Menu",
-            route = "menu_screen",
-            icon = painterResource(id = R.drawable.ic_menu)
-        ),
-        BottomNavItem(
-            name = "Orders",
-            route = "orders_screen",
-            icon = painterResource(id = R.drawable.ic_orders)
-        )
-    )
 
     Scaffold(
         bottomBar = {
             if (backStackEntry.value?.destination?.route != "splash_screen") {
                 BottomNavigationView(
-                    items = bottomNavItems,
+                    items = BottomNavItem.bottomNavItems,
                     navController = navController,
                     onItemClick = {
                         navController.navigate(it.route)
                     }
                 )
             }
-        }
-    ) {
-        Navigation(navController = navController)
-    }
+        },
+        content = {
+            Navigation(navController = navController)
+        })
+
 }
 
 @Composable
@@ -114,14 +104,21 @@ fun BottomNavigationView(
                     Column(horizontalAlignment = CenterHorizontally) {
                         if (item.badgeCount > 0) {
                             BadgedBox(badge = { Badge { Text(text = "${item.badgeCount}") } }) {
-                                Icon(painter = item.icon, contentDescription = item.name)
+                                Icon(painter = painterResource(id = item.icon), contentDescription = item.route)
                             }
                         } else {
-                            Icon(painter = item.icon, contentDescription = item.name)
+                            Icon(painter = painterResource(id = item.icon), contentDescription = item.route)
                         }
                         if (isSelected) {
                             Text(
-                                text = item.name,
+                                text = stringResource(
+                                    id =
+                                    when (item.route) {
+                                        "menu_screen" -> R.string.menu
+                                        "orders_screen" -> R.string.orders
+                                        else -> R.string.orders
+                                    }
+                                ),
                                 textAlign = TextAlign.Center
                             )
                         }

@@ -13,6 +13,6 @@ data class ProductEntity(
     val number: Int = 0,
     val type: String = "",
     val ingredients: String = "",
-    val price: Double = 0.0,
+    val price: ArrayList<Double> = arrayListOf(),
     val picture: String = ""
 )
