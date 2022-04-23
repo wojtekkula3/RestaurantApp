@@ -29,6 +29,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.wojciechkula.goodtime.BottomNavigationView
 import com.wojciechkula.goodtime.R
 import com.wojciechkula.goodtime.domain.model.ProductModel
+import com.wojciechkula.goodtime.theme.Error
 import com.wojciechkula.goodtime.theme.Teal100
 import com.wojciechkula.goodtime.ui.common.bottomNavItems.BottomNavItem
 import com.wojciechkula.goodtime.ui.common.networkConnection.ConnectionState
@@ -145,7 +146,7 @@ fun Menu(sharedViewModel: SharedViewModel = viewModel(), navController: NavContr
                             Box(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .background(colorResource(id = R.color.error))
+                                    .background(Error)
                                     .padding(3.dp),
                                 contentAlignment = Alignment.TopCenter
                             ) {

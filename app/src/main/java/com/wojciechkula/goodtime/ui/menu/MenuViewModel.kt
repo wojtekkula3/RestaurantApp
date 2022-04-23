@@ -23,7 +23,7 @@ class MenuViewModel @Inject constructor(
                 val products = getProductsInteractor()
                 viewState.value.products = products
             } catch (e: Exception) {
-                Timber.e("Exception occured while getting products", e.message)
+                Timber.e("Exception occurred while getting products", e.message)
             }
         }
     }

@@ -14,5 +14,7 @@
     <string name="menu_big_size">Big (45 Ø) - %1$s zł</string>
     <string name="menu_mega_size">Mega (60 Ø) - %1$s zł</string>
     <string name="menu_image_description">Image of %1$s</string>
+    <string name="splash_screen_please_wait">Preparing the menu...</string>
+    <string name="splash_screen_please_check_your_internet_connection">Check your internet connection</string>
 
 </resources>

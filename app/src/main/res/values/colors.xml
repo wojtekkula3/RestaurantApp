@@ -10,5 +10,5 @@
     <color name="secondaryTextColor">#000000</color>
     <color name="lightGray">#EDEDED</color>
 
-    <color name="error">#FF7575</color>
+    <color name="error">#FF5151</color>
 </resources>

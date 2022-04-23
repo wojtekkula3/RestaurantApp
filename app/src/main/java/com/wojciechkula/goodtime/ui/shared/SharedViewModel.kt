@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.wojciechkula.goodtime.domain.model.ProductModel
 import com.wojciechkula.goodtime.domain.usecase.getProductsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -17,12 +19,18 @@ class SharedViewModel @Inject constructor(
 ) : ViewModel() {
 
     val viewState: MutableState<List<ProductModel>> = mutableStateOf(ArrayList())
+    private val _eventsFlow = MutableSharedFlow<SharedViewEvent>()
+    val eventsFlow = _eventsFlow.asSharedFlow()
 
-    init {
+    fun getProducts() {
         viewModelScope.launch {
-            val products = getProductsInteractor()
-            Timber.d(products.toString())
-            viewState.value = products
+            try {
+                val products = getProductsInteractor()
+                viewState.value = products
+                _eventsFlow.emit(SharedViewEvent.ShowPossibleDialog(products))
+            } catch (e: Exception) {
+                Timber.e("Exception while getting products", e)
+            }
         }
     }
 }

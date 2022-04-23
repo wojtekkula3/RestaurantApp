@@ -10,3 +10,5 @@ val Teal700 = Color(0xFF00675b)
 val Orange100 = Color(0xFFffdd71)
 val Orange200 = Color(0xFFffab40)
 val Orange500 = Color(0xFFc77c02)
+
+val Error = Color(0xFFFF5151)
